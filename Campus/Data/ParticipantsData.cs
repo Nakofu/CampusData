@@ -10,7 +10,7 @@ public class ParticipantsData
 {
     public static IEnumerable<Participants> Aa()
     {
-        using var r = new StreamReader(Directory.GetCurrentDirectory() + "/participants.json");
+        using var r = new StreamReader(Directory.GetCurrentDirectory() + "participants.json");
         
         var onj = JsonConvert.DeserializeObject<List<Participants>>(r.ReadToEnd());
         return onj;
