@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(opt => opt.AddPolicy(name: "AllowAny", policyBuilder =>
@@ -15,14 +14,10 @@ builder.Services.AddCors(opt => opt.AddPolicy(name: "AllowAny", policyBuilder =>
     policyBuilder.AllowAnyHeader()
         .AllowAnyMethod()
         .AllowAnyOrigin();
-    //policyBuilder.AllowAnyHeader()
-    //    .AllowAnyMethod()
-    //    .SetIsOriginAllowed((_) => true)
-    //    .AllowCredentials();
 }));
 
 var configuration = builder.Configuration;
-
+/*
 builder.Services.AddDbContext<ApplicationsContext>(options =>
     options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDbContext<AttendanceMobileContext>(options =>
@@ -47,7 +42,7 @@ builder.Services.AddDbContext<RegionsContext>(options =>
     options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDbContext<SchoolsContext>(options =>
     options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
-
+*/
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

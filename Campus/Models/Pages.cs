@@ -4,17 +4,12 @@ using System.Text;
 
 namespace Campus.Models;
 
-[Table("pages")]
 public class Pages
 {
-    [Key]
-    [Column("name")]
     public string Name { get; set; }
     
-    [Column("time")]
     public int Time { get; set; }
     
-    [Column("percentage")]
     public int Percentage { get; set; }
     
     public override string ToString()

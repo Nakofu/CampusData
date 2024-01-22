@@ -7,17 +7,12 @@ namespace Campus.Models;
 [Table("schools")]
 public class Schools
 {
-    [Key]
-    [Column("name")]
     public string Name { get; set; }
     
-    [Column("students")]
     public string Students { get; set; }
-    
-    [Column("honours")]
+
     public string Honours { get; set; }
     
-    [Column("applicants")]
     public string Applicants { get; set; }
     
     public override string ToString()

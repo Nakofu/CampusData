@@ -9,6 +9,7 @@ namespace Campus.Controllers;
 [ApiController]
 public class CampusController : ControllerBase
 {
+    /*
     private readonly ApplicationsContext _applicationsContext;
     private readonly AttendanceMobileContext _attendanceMobileContext;
     private readonly AttendanceWebContext _attendanceWebContext;
@@ -48,13 +49,24 @@ public class CampusController : ControllerBase
         _regionsContext = regionsContext;
         _schoolsContext = schoolsContext;
     }
-
+*/
     [EnableCors("AllowAny")]
     [HttpGet("/getInfo")]
     public async Task<string> GetStuff()
     {
         var strBuilder = new StringBuilder();
+
+        var participants = ParticipantsData.Aa().ToList();
         
+        strBuilder.Append("{\n");
+        strBuilder.Append("  \"participants\": [\n");
+        for (var i = 0; i < participants.Count; i++)
+        {
+            strBuilder.Append(participants[i]);
+            strBuilder.Append(i == participants.Count - 1 ? "\n" : ",\n");
+        }
+        strBuilder.Append("  ],\n");
+        /*
         strBuilder.Append("{\n");
         strBuilder.Append("  \"participants\": [\n");
         for (var i = 0; i < _participantsContext.Values.ToList().Count; i++)
@@ -149,130 +161,10 @@ public class CampusController : ControllerBase
         {
             strBuilder.Append(_regionsContext.Values.ToList()[i]);
             strBuilder.Append(i == _regionsContext.Values.ToList().Count - 1 ? "\n" : ",\n");
-        }
+        }*/
         strBuilder.Append("  ]\n");
         strBuilder.Append("}");
 
         return await Task.FromResult(strBuilder.ToString());
-    }
-    
-    [HttpPost("/addParticipations")]
-    public async Task<ActionResult<Participants>> AddParticipations(IEnumerable<Participants> participants)
-    {
-        foreach (var partic in participants)
-            _participantsContext.Add(partic);
-        await _participantsContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddParticipations), 0);
-    }
-    
-    [HttpPost("/addApplications")]
-    public async Task<ActionResult<Participants>> AddApplicationsContext(IEnumerable<Applications> applications)
-    {
-        foreach (var app in applications)
-            _applicationsContext.Add(app);
-        await _applicationsContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddApplicationsContext), 0);
-    }
-
-    [HttpPost("/addAttendanceMobile")]
-    public async Task<ActionResult<Participants>> AddAttendanceMobileContext(IEnumerable<AttendanceMobile> attendanceMobiles)
-    {
-        foreach (var attendanceMobile in attendanceMobiles)
-            _attendanceMobileContext.Add(attendanceMobile);
-        await _attendanceMobileContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddAttendanceMobileContext), 0);
-    }
-    
-    [HttpPost("/addAttendanceWeb")]
-    public async Task<ActionResult<Participants>> AddAttendanceWebContext(IEnumerable<AttendanceWeb> items)
-    {
-        foreach (var item in items)
-            _attendanceWebContext.Add(item);
-        await _attendanceWebContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddAttendanceWebContext), 0);
-    }
-    
-    [HttpPost("/addFundBonus")]
-    public async Task<ActionResult<Participants>> AddFundBonusContext(IEnumerable<FundBonus> items)
-    {
-        foreach (var item in items)
-            _fundBonusContext.Add(item);
-        await _fundBonusContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddFundBonusContext), 0);
-    }
-    
-    [HttpPost("/addFundPrivilege")]
-    public async Task<ActionResult<Participants>> AddFundPrivilegeContext(IEnumerable<FundPrivilege> items)
-    {
-        foreach (var item in items)
-            _fundPrivilegeContext.Add(item);
-        await _fundPrivilegeContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddFundPrivilegeContext), 0);
-    }
-    
-    [HttpPost("/addFundStipend")]
-    public async Task<ActionResult<Participants>> AddFundStipendContext(IEnumerable<FundStipend> items)
-    {
-        foreach (var item in items)
-            _fundStipendContext.Add(item);
-        await _fundStipendContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddFundStipendContext), 0);
-    }
-    
-    [HttpPost("/addHonours")]
-    public async Task<ActionResult<Participants>> AddHonoursContext(IEnumerable<Honours> items)
-    {
-        foreach (var item in items)
-            _honoursContext.Add(item);
-        await _honoursContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddHonoursContext), 0);
-    }
-    
-    [HttpPost("/addMajors")]
-    public async Task<ActionResult<Participants>> AddMajorsContext(IEnumerable<Majors> items)
-    {
-        foreach (var item in items)
-            _majorsContext.Add(item);
-        await _majorsContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddMajorsContext), 0);
-    }
-    
-    [HttpPost("/addPages")]
-    public async Task<ActionResult<Participants>> AddPagesContext(IEnumerable<Pages> items)
-    {
-        foreach (var item in items)
-            _pagesContext.Add(item);
-        await _pagesContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddPagesContext), 0);
-    }
-    
-    [HttpPost("/addRegions")]
-    public async Task<ActionResult<Participants>> AddRegionsContext(IEnumerable<Regions> items)
-    {
-        foreach (var item in items)
-            _regionsContext.Add(item);
-        await _regionsContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddRegionsContext), 0);
-    }
-    
-    [HttpPost("/addSchools")]
-    public async Task<ActionResult<Participants>> AddSchoolsContext(IEnumerable<Schools> items)
-    {
-        foreach (var item in items)
-            _schoolsContext.Add(item);
-        await _schoolsContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(AddSchoolsContext), 0);
     }
 }

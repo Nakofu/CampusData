@@ -4,14 +4,10 @@ using System.Text;
 
 namespace Campus.Models;
 
-[Table("attendancemobile")]
 public class AttendanceMobile
 {
-    [Key]
-    [Column("month")]
     public string Month { get; set; }
     
-    [Column("amount")]
     public int Amount { get; set; }
     
     public override string ToString()

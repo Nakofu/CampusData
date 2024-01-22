@@ -3,7 +3,7 @@ version: "3.9"
 services:
   campus:
     build:
-      context: "D:\\Ilya\\Programming\\Projects\\CampusInfo\\Campus"
+      context: "D:\\Ilya\\Programming\\Projects\\CampusData\\Campus"
       dockerfile: "Dockerfile"
       target: "base"
     command: []
@@ -17,6 +17,6 @@ services:
     ports: []
     volumes:
     - "C:\\Users\\ADMIN\\.nuget\\packages:/root/.nuget/packages"
-    - "D:\\Ilya\\Programming\\Projects\\CampusInfo\\Campus:/app:rw"
-    - "D:\\Ilya\\Programming\\Projects\\CampusInfo:/src:rw"
+    - "D:\\Ilya\\Programming\\Projects\\CampusData\\Campus:/app:rw"
+    - "D:\\Ilya\\Programming\\Projects\\CampusData:/src:rw"
     working_dir: "/app"

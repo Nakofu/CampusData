@@ -7,14 +7,10 @@ namespace Campus.Models;
 [Table("regions")]
 public class Regions
 {
-    [Key]
-    [Column("name")]
     public string Name { get; set; }
     
-    [Column("users")]
     public string Users { get; set; }
     
-    [Column("percentage")]
     public int Percentage { get; set; }
     
     public override string ToString()

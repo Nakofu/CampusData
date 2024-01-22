@@ -5,35 +5,4 @@ services:
     image: francescoxx/csharpapp:1.0
     build: .
     ports:
-      - "42202:80" # Remote: 42202 Local: 8080
-    environment:
-      ConnectionStrings__DefaultConnection: "Host=db;Database=postgres;Username=postgres;Password=postgres"
-    depends_on:
-      - db
-  db:
-    container_name: db
-    image: postgres
-    expose:
-      - 5432
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
-      DB_HOST: db
-    volumes:
-      - db:/var/lib/postgresql/data
-  pgadmin:
-    container_name: pgadmin
-    image: dpage/pgadmin4
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@mail.ru
-      PGADMIN_DEFAULT_PASSWORD: admin
-    ports:
-      - "5050:80"
-    depends_on:
-      - db
-volumes:
-  db: {}
+      - "8080:80" # Remote: 42202 Local: 8080

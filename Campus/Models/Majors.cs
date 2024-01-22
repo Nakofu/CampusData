@@ -4,14 +4,10 @@ using System.Text;
 
 namespace Campus.Models;
 
-[Table("majors")]
 public class Majors
 {
-    [Key]
-    [Column("name")]
     public string Name { get; set; }
     
-    [Column("students")]
     public string Students { get; set; }
     
     public override string ToString()
