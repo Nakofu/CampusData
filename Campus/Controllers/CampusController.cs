@@ -68,105 +68,35 @@ public class CampusController : ControllerBase
         var schools = SchoolsData.GetData().ToList();
         
         var strBuilder = new StringBuilder();
+        
         strBuilder.Append("{\n");
-        strBuilder.Append("  \"participants\": [\n");
-        for (var i = 0; i < participants.Count; i++)
-        {
-            strBuilder.Append(participants[i]);
-            strBuilder.Append(i == participants.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
         
-        strBuilder.Append("  \"attendanceMobile\": [\n");
-        for (var i = 0; i < attendanceMobile.Count; i++)
-        {
-            strBuilder.Append(attendanceMobile[i]);
-            strBuilder.Append(i == attendanceMobile.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
-        
-        strBuilder.Append("  \"attendanceWeb\": [\n");
-        for (var i = 0; i < attendanceWeb.Count; i++)
-        {
-            strBuilder.Append(attendanceWeb[i]);
-            strBuilder.Append(i == attendanceWeb.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
-        
-        strBuilder.Append("  \"honours\": [\n");
-        for (var i = 0; i < honours.Count; i++)
-        {
-            strBuilder.Append(honours[i]);
-            strBuilder.Append(i == honours.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
-        
-        strBuilder.Append("  \"applications\": [\n");
-        for (var i = 0; i < applications.Count; i++)
-        {
-            strBuilder.Append(applications[i]);
-            strBuilder.Append(i == applications.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
-        
-        strBuilder.Append("  \"fundStipend\": [\n");
-        for (var i = 0; i < fundStipend.Count; i++)
-        {
-            strBuilder.Append(fundStipend[i]);
-            strBuilder.Append(i == fundStipend.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
-        
-        strBuilder.Append("  \"fundPrivilege\": [\n");
-        for (var i = 0; i < fundPrivilege.Count; i++)
-        {
-            strBuilder.Append(fundPrivilege[i]);
-            strBuilder.Append(i == fundPrivilege.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
-
-        strBuilder.Append("  \"fundBonus\": [\n");
-        for (var i = 0; i < fundBonus.Count; i++)
-        {
-            strBuilder.Append(fundBonus[i]);
-            strBuilder.Append(i == fundBonus.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
-        
-        strBuilder.Append("  \"schools\": [\n");
-        for (var i = 0; i < schools.Count; i++)
-        {
-            strBuilder.Append(schools[i]);
-            strBuilder.Append(i == schools.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
-        
-        strBuilder.Append("  \"majors\": [\n");
-        for (var i = 0; i < majors.Count; i++)
-        {
-            strBuilder.Append(majors[i]);
-            strBuilder.Append(i == majors.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
-        
-        strBuilder.Append("  \"pages\": [\n");
-        for (var i = 0; i < pages.Count; i++)
-        {
-            strBuilder.Append(pages[i]);
-            strBuilder.Append(i == pages.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
-
-        strBuilder.Append("  \"regions\": [\n");
-        for (var i = 0; i < regions.Count; i++)
-        {
-            strBuilder.Append(regions[i]);
-            strBuilder.Append(i == regions.Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ]\n");
+        AddToOutput(strBuilder, participants, "participants");
+        AddToOutput(strBuilder, attendanceMobile, "attendanceMobile");
+        AddToOutput(strBuilder, attendanceWeb, "attendanceWeb");
+        AddToOutput(strBuilder, honours, "honours");
+        AddToOutput(strBuilder, applications, "applications");
+        AddToOutput(strBuilder, fundStipend, "fundStipend");
+        AddToOutput(strBuilder, fundPrivilege, "fundPrivilege");
+        AddToOutput(strBuilder, fundBonus, "fundBonus");
+        AddToOutput(strBuilder, schools, "schools");
+        AddToOutput(strBuilder, majors, "majors");
+        AddToOutput(strBuilder, pages, "pages");
+        AddToOutput(strBuilder, regions, "regions");
         
         strBuilder.Append("}");
 
         return await Task.FromResult(strBuilder.ToString());
+    }
+
+    private void AddToOutput<T>(StringBuilder strBuilder, List<T> data, string title)
+    {
+        strBuilder.Append($"  \"{title}\": [\n");
+        for (var i = 0; i < data.Count; i++)
+        {
+            strBuilder.Append(data[i]);
+            strBuilder.Append(i == data.Count - 1 ? "\n" : ",\n");
+        }
+        strBuilder.Append("  ]\n");
     }
 }
