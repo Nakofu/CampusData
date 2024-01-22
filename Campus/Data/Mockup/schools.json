@@ -1,0 +1,74 @@
+﻿[
+  {
+    "name": "УРФУ",
+    "students": "9972,10345",
+    "honours": "4891,5045",
+    "applicants": "3156,3243"
+  },
+  {
+    "name": "УрГЭУ-СИНХ",
+    "students": "4521,4732",
+    "honours": "1893,1932",
+    "applicants": "901,925"
+  },
+  {
+    "name": "РГППУ",
+    "students": "3056,3183",
+    "honours": "1156,1203",
+    "applicants": "1003,1076"
+  },
+  {
+    "name": "УрГПУ",
+    "students": "3870,3956",
+    "honours": "1689,1759",
+    "applicants": "742,789"
+  },
+  {
+    "name": "УрГУПС",
+    "students": "2092,2123",
+    "honours": "1256,1294",
+    "applicants": "289,321"
+  },
+  {
+    "name": "УрГЮУ",
+    "students": "878,932",
+    "honours": "234,266",
+    "applicants": "201,247"
+  },
+  {
+    "name": "ЕАСИ",
+    "students": "47,54",
+    "honours": "18,20",
+    "applicants": "10,11"
+  },
+  {
+    "name": "УГМУ",
+    "students": "392,432",
+    "honours": "178,224",
+    "applicants": "130,134"
+  },
+  {
+    "name": "УГГУ",
+    "students": "286,311",
+    "honours": "156,171",
+    "applicants": "132,134"
+  },
+  {
+    "name": "УрГАХУ",
+    "students": "201,223",
+    "honours": "70,78",
+    "applicants": "69,78"
+  },
+  {
+    "name": "УрГАУ",
+    "students": "221,254",
+    "honours": "132,147",
+    "applicants": "36,43"
+  },
+  {
+    "name": "УГЛТУ",
+    "students": "744,779",
+    "honours": "345,364",
+    "applicants": "61,67"
+  }
+]

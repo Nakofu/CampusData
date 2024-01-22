@@ -76,7 +76,6 @@ D:\Ilya\Programming\Projects\CampusInfo\Campus\obj\Debug\net7.0\Campus.genruntim
 D:\Ilya\Programming\Projects\CampusInfo\Campus\obj\Debug\net7.0\ref\Campus.dll
 D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\appsettings.Development.json
 D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\appsettings.json
-D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\participants.json
 D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Campus.exe
 D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Campus.deps.json
 D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Campus.runtimeconfig.json
@@ -114,3 +113,15 @@ D:\Ilya\Programming\Projects\CampusData\Campus\obj\Debug\net7.0\refint\Campus.dl
 D:\Ilya\Programming\Projects\CampusData\Campus\obj\Debug\net7.0\Campus.pdb
 D:\Ilya\Programming\Projects\CampusData\Campus\obj\Debug\net7.0\Campus.genruntimeconfig.cache
 D:\Ilya\Programming\Projects\CampusData\Campus\obj\Debug\net7.0\ref\Campus.dll
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\applications.json
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\attendanceMobile.json
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\attendanceWeb.json
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\fundBonus.json
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\fundPrivilege.json
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\fundStipend.json
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\honours.json
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\majors.json
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\pages.json
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\participants.json
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\regions.json
+D:\Ilya\Programming\Projects\CampusData\Campus\bin\Debug\net7.0\Data\Mockup\schools.json

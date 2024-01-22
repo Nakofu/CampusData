@@ -7,16 +7,16 @@ namespace Campus.Models;
 
 public class Participants
 {
-    public string month { get; set; }
+    public string Month { get; set; }
     
-    public int amount { get; set; }
+    public int Amount { get; set; }
 
     public override string ToString()
     {
         var strBuilder = new StringBuilder();
         strBuilder.Append("    {\n");
-        strBuilder.Append($"      \"month\": \"{month}\",\n");
-        strBuilder.Append($"      \"amount\": {amount}\n");
+        strBuilder.Append($"      \"month\": \"{Month}\",\n");
+        strBuilder.Append($"      \"amount\": {Amount}\n");
         strBuilder.Append("    }");
         return strBuilder.ToString();
     }

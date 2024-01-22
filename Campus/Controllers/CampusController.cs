@@ -54,10 +54,20 @@ public class CampusController : ControllerBase
     [HttpGet("/getInfo")]
     public async Task<string> GetStuff()
     {
-        var strBuilder = new StringBuilder();
-
-        var participants = ParticipantsData.Aa().ToList();
+        var participants = ParticipantsData.GetData().ToList();
+        var attendanceMobile = AttendanceMobileData.GetData().ToList();
+        var attendanceWeb = AttendanceWebData.GetData().ToList();
+        var honours = HonoursData.GetData().ToList();
+        var applications = ApplicationsData.GetData().ToList();
+        var fundBonus = FundBonusData.GetData().ToList();
+        var fundPrivilege = FundPrivilegeData.GetData().ToList();
+        var fundStipend = FundStipendData.GetData().ToList();
+        var majors = MajorsData.GetData().ToList();
+        var pages = PagesData.GetData().ToList();
+        var regions = RegionsData.GetData().ToList();
+        var schools = SchoolsData.GetData().ToList();
         
+        var strBuilder = new StringBuilder();
         strBuilder.Append("{\n");
         strBuilder.Append("  \"participants\": [\n");
         for (var i = 0; i < participants.Count; i++)
@@ -66,103 +76,95 @@ public class CampusController : ControllerBase
             strBuilder.Append(i == participants.Count - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ],\n");
-        /*
-        strBuilder.Append("{\n");
-        strBuilder.Append("  \"participants\": [\n");
-        for (var i = 0; i < _participantsContext.Values.ToList().Count; i++)
-        {
-            strBuilder.Append(_participantsContext.Values.ToList()[i]);
-            strBuilder.Append(i == _participantsContext.Values.ToList().Count - 1 ? "\n" : ",\n");
-        }
-        strBuilder.Append("  ],\n");
         
         strBuilder.Append("  \"attendanceMobile\": [\n");
-        for (var i = 0; i < _attendanceMobileContext.Values.ToList().Count; i++)
+        for (var i = 0; i < attendanceMobile.Count; i++)
         {
-            strBuilder.Append(_attendanceMobileContext.Values.ToList()[i]);
-            strBuilder.Append(i == _attendanceMobileContext.Values.ToList().Count - 1 ? "\n" : ",\n");
+            strBuilder.Append(attendanceMobile[i]);
+            strBuilder.Append(i == attendanceMobile.Count - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ],\n");
         
         strBuilder.Append("  \"attendanceWeb\": [\n");
-        for (var i = 0; i < _attendanceWebContext.Values.ToList().Count; i++)
+        for (var i = 0; i < attendanceWeb.Count; i++)
         {
-            strBuilder.Append(_attendanceWebContext.Values.ToList()[i]);
-            strBuilder.Append(i == _attendanceWebContext.Values.ToList().Count - 1 ? "\n" : ",\n");
+            strBuilder.Append(attendanceWeb[i]);
+            strBuilder.Append(i == attendanceWeb.Count - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ],\n");
         
         strBuilder.Append("  \"honours\": [\n");
-        for (var i = 0; i < _honoursContext.Values.ToList().Count; i++)
+        for (var i = 0; i < honours.Count; i++)
         {
-            strBuilder.Append(_honoursContext.Values.ToList()[i]);
-            strBuilder.Append(i == _honoursContext.Values.ToList().Count - 1 ? "\n" : ",\n");
+            strBuilder.Append(honours[i]);
+            strBuilder.Append(i == honours.Count - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ],\n");
         
         strBuilder.Append("  \"applications\": [\n");
-        for (var i = 0; i < _applicationsContext.Values.ToList().Count; i++)
+        for (var i = 0; i < applications.Count; i++)
         {
-            strBuilder.Append(_applicationsContext.Values.ToList()[i]);
-            strBuilder.Append(i == _applicationsContext.Values.ToList().Count - 1 ? "\n" : ",\n");
+            strBuilder.Append(applications[i]);
+            strBuilder.Append(i == applications.Count - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ],\n");
         
         strBuilder.Append("  \"fundStipend\": [\n");
-        for (var i = 0; i < _fundStipendContext.Values.ToList().Count; i++)
+        for (var i = 0; i < fundStipend.Count; i++)
         {
-            strBuilder.Append(_fundStipendContext.Values.ToList()[i]);
-            strBuilder.Append(i == _fundStipendContext.Values.ToList().Count - 1 ? "\n" : ",\n");
+            strBuilder.Append(fundStipend[i]);
+            strBuilder.Append(i == fundStipend.Count - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ],\n");
         
         strBuilder.Append("  \"fundPrivilege\": [\n");
-        for (var i = 0; i < _fundPrivilegeContext.Values.ToList().Count; i++)
+        for (var i = 0; i < fundPrivilege.Count; i++)
         {
-            strBuilder.Append(_fundPrivilegeContext.Values.ToList()[i]);
-            strBuilder.Append(i == _fundPrivilegeContext.Values.ToList().Count - 1 ? "\n" : ",\n");
+            strBuilder.Append(fundPrivilege[i]);
+            strBuilder.Append(i == fundPrivilege.Count - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ],\n");
 
         strBuilder.Append("  \"fundBonus\": [\n");
-        for (var i = 0; i < _fundBonusContext.Values.ToList().Count; i++)
+        for (var i = 0; i < fundBonus.Count; i++)
         {
-            strBuilder.Append(_fundBonusContext.Values.ToList()[i]);
-            strBuilder.Append(i == _fundBonusContext.Values.ToList().Count - 1 ? "\n" : ",\n");
+            strBuilder.Append(fundBonus[i]);
+            strBuilder.Append(i == fundBonus.Count - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ],\n");
         
         strBuilder.Append("  \"schools\": [\n");
-        for (var i = 0; i < _schoolsContext.Values.ToList().Count; i++)
+        for (var i = 0; i < schools.Count; i++)
         {
-            strBuilder.Append(_schoolsContext.Values.ToList()[i]);
-            strBuilder.Append(i == _schoolsContext.Values.ToList().Count - 1 ? "\n" : ",\n");
+            strBuilder.Append(schools[i]);
+            strBuilder.Append(i == schools.Count - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ],\n");
         
         strBuilder.Append("  \"majors\": [\n");
-        for (var i = 0; i < _majorsContext.Values.ToList().Count; i++)
+        for (var i = 0; i < majors.Count; i++)
         {
-            strBuilder.Append(_majorsContext.Values.ToList()[i]);
-            strBuilder.Append(i == _majorsContext.Values.ToList().Count - 1 ? "\n" : ",\n");
+            strBuilder.Append(majors[i]);
+            strBuilder.Append(i == majors.Count - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ],\n");
         
         strBuilder.Append("  \"pages\": [\n");
-        for (var i = 0; i < _pagesContext.Values.ToList().Count; i++)
+        for (var i = 0; i < pages.Count; i++)
         {
-            strBuilder.Append(_pagesContext.Values.ToList()[i]);
-            strBuilder.Append(i == _pagesContext.Values.ToList().Count - 1 ? "\n" : ",\n");
+            strBuilder.Append(pages[i]);
+            strBuilder.Append(i == pages.Count - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ],\n");
 
         strBuilder.Append("  \"regions\": [\n");
-        for (var i = 0; i < _regionsContext.Values.ToList().Count; i++)
+        for (var i = 0; i < regions.Count; i++)
         {
-            strBuilder.Append(_regionsContext.Values.ToList()[i]);
-            strBuilder.Append(i == _regionsContext.Values.ToList().Count - 1 ? "\n" : ",\n");
-        }*/
+            strBuilder.Append(regions[i]);
+            strBuilder.Append(i == regions.Count - 1 ? "\n" : ",\n");
+        }
         strBuilder.Append("  ]\n");
+        
         strBuilder.Append("}");
 
         return await Task.FromResult(strBuilder.ToString());

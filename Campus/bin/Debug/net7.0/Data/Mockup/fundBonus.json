@@ -1,0 +1,42 @@
+﻿[
+  {
+    "month": "Апр",
+    "amount": 412
+  },
+  {
+    "month": "Май",
+    "amount": 422
+  },
+  {
+    "month": "Июн",
+    "amount": 322
+  },
+  {
+    "month": "Июл",
+    "amount": 354
+  },
+  {
+    "month": "Авг",
+    "amount": 372
+  },
+  {
+    "month": "Сен",
+    "amount": 672
+  },
+  {
+    "month": "Окт",
+    "amount": 655
+  },
+  {
+    "month": "Ноя",
+    "amount": 649
+  },
+  {
+    "month": "Дек",
+    "amount": 630
+  },
+  {
+    "month": "Янв",
+    "amount": 678
+  }
+]
