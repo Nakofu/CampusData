@@ -1,0 +1,22 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.9"
+services:
+  campus:
+    build:
+      context: "D:\\Ilya\\Programming\\Projects\\CampusInfo\\Campus"
+      dockerfile: "Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/Campus.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "francescoxx/csharpapp:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\ADMIN\\.nuget\\packages:/root/.nuget/packages"
+    - "D:\\Ilya\\Programming\\Projects\\CampusInfo\\Campus:/app:rw"
+    - "D:\\Ilya\\Programming\\Projects\\CampusInfo:/src:rw"
+    working_dir: "/app"
