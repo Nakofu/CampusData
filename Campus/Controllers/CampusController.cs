@@ -54,35 +54,22 @@ public class CampusController : ControllerBase
     [HttpGet("/getInfo")]
     public async Task<string> GetStuff()
     {
-        var participants = ParticipantsData.GetData().ToList();
-        var attendanceMobile = AttendanceMobileData.GetData().ToList();
-        var attendanceWeb = AttendanceWebData.GetData().ToList();
-        var honours = HonoursData.GetData().ToList();
-        var applications = ApplicationsData.GetData().ToList();
-        var fundBonus = FundBonusData.GetData().ToList();
-        var fundPrivilege = FundPrivilegeData.GetData().ToList();
-        var fundStipend = FundStipendData.GetData().ToList();
-        var majors = MajorsData.GetData().ToList();
-        var pages = PagesData.GetData().ToList();
-        var regions = RegionsData.GetData().ToList();
-        var schools = SchoolsData.GetData().ToList();
-        
         var strBuilder = new StringBuilder();
         
         strBuilder.Append("{\n");
         
-        AddToOutput(strBuilder, participants, "participants");
-        AddToOutput(strBuilder, attendanceMobile, "attendanceMobile");
-        AddToOutput(strBuilder, attendanceWeb, "attendanceWeb");
-        AddToOutput(strBuilder, honours, "honours");
-        AddToOutput(strBuilder, applications, "applications");
-        AddToOutput(strBuilder, fundStipend, "fundStipend");
-        AddToOutput(strBuilder, fundPrivilege, "fundPrivilege");
-        AddToOutput(strBuilder, fundBonus, "fundBonus");
-        AddToOutput(strBuilder, schools, "schools");
-        AddToOutput(strBuilder, majors, "majors");
-        AddToOutput(strBuilder, pages, "pages");
-        AddToOutput(strBuilder, regions, "regions");
+        AddToOutput(strBuilder, ParticipantsData.GetData().ToList(), "participants");
+        AddToOutput(strBuilder, AttendanceMobileData.GetData().ToList(), "attendanceMobile");
+        AddToOutput(strBuilder, AttendanceWebData.GetData().ToList(), "attendanceWeb");
+        AddToOutput(strBuilder, HonoursData.GetData().ToList(), "honours");
+        AddToOutput(strBuilder, ApplicationsData.GetData().ToList(), "applications");
+        AddToOutput(strBuilder, FundStipendData.GetData().ToList(), "fundStipend");
+        AddToOutput(strBuilder, FundPrivilegeData.GetData().ToList(), "fundPrivilege");
+        AddToOutput(strBuilder, FundBonusData.GetData().ToList(), "fundBonus");
+        AddToOutput(strBuilder, SchoolsData.GetData().ToList(), "schools");
+        AddToOutput(strBuilder, MajorsData.GetData().ToList(), "majors");
+        AddToOutput(strBuilder, PagesData.GetData().ToList(), "pages");
+        AddToOutput(strBuilder, RegionsData.GetData().ToList(), "regions");
         
         strBuilder.Append("}");
 
@@ -91,11 +78,13 @@ public class CampusController : ControllerBase
 
     private void AddToOutput<T>(StringBuilder strBuilder, List<T> data, string title)
     {
+        var dataCount = data.Count;
+        
         strBuilder.Append($"  \"{title}\": [\n");
-        for (var i = 0; i < data.Count; i++)
+        for (var i = 0; i < dataCount; i++)
         {
             strBuilder.Append(data[i]);
-            strBuilder.Append(i == data.Count - 1 ? "\n" : ",\n");
+            strBuilder.Append(i == dataCount - 1 ? "\n" : ",\n");
         }
         strBuilder.Append("  ]\n");
     }
