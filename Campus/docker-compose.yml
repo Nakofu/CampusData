@@ -5,4 +5,4 @@ services:
     image: francescoxx/csharpapp:1.0
     build: .
     ports:
-      - "42202:80" # Remote: 42202 Local: 8080
+      - "8080:80" # Remote: 42202 Local: 8080
